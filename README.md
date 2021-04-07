@@ -199,7 +199,7 @@ To view the list of available APIs and their specifications, run the server and 
 List of available routes:
 
 **Auth routes**:\
-`POST /v1/auth/register` - register\
+`POST /v1/auth/register` - register email ufps required\
 `POST /v1/auth/login` - login\
 `POST /v1/auth/refresh-tokens` - refresh auth tokens\
 `POST /v1/auth/forgot-password` - send reset password email\
