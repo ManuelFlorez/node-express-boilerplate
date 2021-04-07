@@ -8,6 +8,9 @@ const ApiError = require('../utils/ApiError');
  * @returns {Promise<User>}
  */
 const createUser = async (userBody) => {
+  if (userBody.email.split('@')[1] !== 'ufps.edu.co') {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Email no es ufps');
+  }
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Email already taken');
   }
