@@ -1,9 +1,14 @@
 module.exports = {
-  testEnvironment: 'node',
-  testEnvironmentOptions: {
-    NODE_ENV: 'test',
+  globals: {
+    "ts-jest": {
+      skipBabel: true,
+    },
   },
-  restoreMocks: true,
-  coveragePathIgnorePatterns: ['node_modules', 'src/config', 'src/app.js', 'tests'],
-  coverageReporters: ['text', 'lcov', 'clover', 'html'],
+  //mapCoverage: true,
+  moduleFileExtensions: ["js", "ts"],
+  testResultsProcessor: "jest-sonar-reporter",
+  transform: {
+    "^.+\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+  },
+  testMatch: ["<rootDir>/tests/**/*.test.js"],
 };
